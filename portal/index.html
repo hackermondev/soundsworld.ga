@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css?v=7c7ce2f89a7a89342d98ec3aeb8c9481dbe80f9e">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Sound’s World Staff Portal. | soundsworld.ga</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Sound’s World Staff Portal. | soundsworld.ga" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A growing community of 80 thousand people." />
+<meta property="og:description" content="A growing community of 80 thousand people." />
+<link rel="canonical" href="http://soundsworld.ga/" />
+<meta property="og:url" content="http://soundsworld.ga/" />
+<meta property="og:site_name" content="soundsworld.ga" />
+<script type="application/ld+json">
+{"headline":"This is a website used for the staff of Sound’s World.","@type":"WebSite","url":"http://soundsworld.ga/","name":"Sound's World","description":"A growing community of 80 thousand people.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="discordapp.com">Login With Discord</a>
+
+          <h1 id="project_title">Sound's World</h1>
+          <h2 id="project_tagline">A growing community of 80 thousand people.</h2>
+
+          
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+   <!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css?v=7c7ce2f89a7a89342d98ec3aeb8c9481dbe80f9e">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Sound’s World Staff Portal. | soundsworld.ga</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Sound’s World Staff Portal. | soundsworld.ga" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A growing community of 80 thousand people." />
+<meta property="og:description" content="A growing community of 80 thousand people." />
+<link rel="canonical" href="http://soundsworld.ga/" />
+<meta property="og:url" content="http://soundsworld.ga/" />
+<meta property="og:site_name" content="soundsworld.ga" />
+<script type="application/ld+json">
+{"headline":"This is a website used for the staff of Sound’s World.","@type":"WebSite","url":"http://soundsworld.ga/","name":"Sound's World","description":"A growing community of 80 thousand people.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="#"></a>
+
+          <h1 id="project_title">Sound's World</h1>
+          <h2 id="project_tagline">A growing community of 80 thousand people.</h2>
+
+          
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+	<div id="info">
+  
+  </div>
+  <script>
+		function generateRandomString() {
+			const rand = Math.floor(Math.random() * 10);
+			let randStr = '';
+
+			for (let i = 0; i < 20 + rand; i++) {
+				randStr += String.fromCharCode(33 + Math.floor(Math.random() * 94));
+			}
+
+			return randStr;
+		}
+
+		window.onload = () => {
+			const fragment = new URLSearchParams(window.location.hash.slice(1));
+
+			if (fragment.has("access_token")) {
+				const urlState = fragment.get("state");
+				const stateParameter = localStorage.getItem('stateParameter');
+				if (stateParameter !== atob(decodeURIComponent(urlState))) {
+					return console.log('You may have been clickjacked!');
+				}
+
+				const accessToken = fragment.get("access_token");
+				const tokenType = fragment.get("token_type");
+
+				fetch('https://discordapp.com/api/users/@me', {
+					headers: {
+						authorization: `${tokenType} ${accessToken}`
+					}
+				})
+					.then(res => res.json())
+					.then(response => {
+						console.log(response);
+						const { username, discriminator } = response;
+						document.getElementById('forkme_banner').innerText += `Welcome ${username}#${discriminator}`;
+					})
+					.catch(console.error);
+
+			}
+			else {
+				const randStr = generateRandomString();
+				localStorage.setItem('stateParameter', randStr);
+			}
+		}
+	</script>
+
+<!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p class="copyright">soundsworld.ga maintained by OBS</p>
+        
+      </footer>
+    </div>
+
+    
+  </body>
+</html>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p class="copyright">soundsworld.ga maintained by OBS</p>
+        
+      </footer>
+    </div>
+
+    
+  </body>
+</html>
