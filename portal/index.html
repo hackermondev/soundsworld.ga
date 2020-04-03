@@ -57,34 +57,12 @@
 
 			return randStr;
 		}
-	  
-	  function getCookie(cname) {
-		  let val;
-		  if (!document.cookie) {
-		val = false;
-			  return val;
-		  }
-		  if (!document.cookie.split(" ")) {
-		val = false;
-			  return val;
-		  }
-let cookies = document.cookie.split(" ");
-		  cookies.forEach(async (cookie) => {
-			let name = cookie.split("=")[0];
-			  let value = cookie.split("=")[1].split(";")[0];
-			  if (name === cname) {
-			val = value;
-				  return val;
-			  }else{
-			val = false;
-				  return val;
-			  }
-		  })
-}
 
 		window.onload = async() => {
-   let cId = await getCookie("id");
-   let cUser = await getCookie("username");
+   let storage = window.localStorage;
+			
+let cId = await storage.getItem("id");
+   let cUser = await storage.getItem("user");
 			let id;
 			if (cId && cUser) {
         id = cId;		
@@ -116,8 +94,9 @@ document.getElementById('forkme_banner').innerText = `Welcome ${cUser}`;
                 const { username, discriminator, uId } = response;
 	    id = uId;
                 document.getElementById('forkme_banner').innerText = `Welcome ${username}#${discriminator}`;
-	    document.cookie = `token=${accessToken}; id=${id}; username=${username}#${discriminator}; `;
-	window.location.href = "#";		
+storage.setItem('id', uId);
+	    storage.setItem('user', `${username}#{discriminator}`);
+	    window.location.href = "#";		
     }
 }
 	    	
