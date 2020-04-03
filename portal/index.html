@@ -34,8 +34,9 @@
 
 	<h1 id="project_title">Sound's World</h1>
           <h2 id="project_tagline">A growing community of 80 thousand people.</h2>
-
-          
+<nav id="top_nav">
+	
+		</nav>
         </header>
     </div>
 
@@ -69,7 +70,9 @@
 
         const accessToken = fragment.get("access_token");
         const tokenType = fragment.get("token_type");
-
+document.cookie(`token=${accessToken}`);
+	    const token = document.cookie.split("=")[1];
+	    console.log(token);
         let res = await fetch('https://discordapp.com/api/users/@me', {
             headers: {
                 authorization: `${tokenType} ${accessToken}`
@@ -79,9 +82,51 @@
                 console.log(response);
                 const { username, discriminator, id } = response;
                 document.getElementById('forkme_banner').innerText = `Welcome ${username}#${discriminator}`;
-	    let memberF = await fetch(`http://v7.altertrail.com:69/api/getMember?id=${id}`, {mode: 'no-cors'})
+	let memberF = await fetch(`http://v7.altertrail.com:69/api/getMember?id=537808581496537108`, {mode: 'cors', method: "GET",  headers: {
+      'Content-Type': 'application/json'}})
 	    let member = await memberF.json();
+	    if (!member) window.href('/denied');
 	    console.log(member);
+	    let owner = '452455304068726785';
+	    let headadmin = '452449880351309826';
+	    let admin = '536978643403014178';
+	    let headmod = '633408725884862504';
+	    let moderator = '452448540946464768;
+	    let trainee = '582951367350550529';
+	    
+	    if (member.roles.includes(trainee)) {
+		     document.getElementById('role_banner').innerText = `Trainee`;
+	    }
+	       if (member.roles.includes(moderator)) {
+		     document.getElementById('role_banner').innerText = `Moderator`;
+	    }
+	        if (member.roles.includes(headmod)) {
+		     document.getElementById('role_banner').innerText = `Head Mod`;
+	    }
+	        if (member.roles.includes(admin)) {
+		     document.getElementById('role_banner').innerText = `Administrator`;
+	    }
+	        if (member.roles.includes(headadmin)) {
+		     document.getElementById('role_banner').innerText = `Head Admin`;
+	    }
+	        if (member.roles.includes(owner)) {
+		     document.getElementById('role_banner').innerText = `Owner`;
+	    }
+	    
+	    if(!member.roles.includes(owner) && !member.roles.includes(headadmin) && !member.roles.includes(admin) && !member.roles.includes(headmod) && !member.roles.includes(moderator) && !member.roles.includes(trainee)){
+		window.href('/denied');    
+	    return;
+	    }
+	    
+	    document.getElementById('top_nav').innerHtml = `<p><a href="/portal">Home</a> | <a href="/portal/encyclo">Encyclopedia</a> | <a href="/portal/clock">Clock In</a> | <a href="/portal/guide">Guide</a>`
+		document.getElementById('info').innerHtml = `<h3>Welcome to the Staff Portal.</h3>
+<h6>Above are several links availible to you to help you moderate better and help us make the team the best it can be.</h6>`
+		
+		if (member.roles.includes(headmod)) {
+		document.getElementById('top_nav').innerHtml += ` | <a href="/portal/hm-guide">Head Mod Guide</a> | <a href="http://v7.altertrail.com:69/api/logs">Logs</a> | <a href='/portal/stats'>Stats</a>`
+		}
+				    
+				    
 	    
 
     }
