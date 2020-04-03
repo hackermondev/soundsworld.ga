@@ -59,6 +59,8 @@
 		}
 
 		window.onload = async() => {
+  async function checkUser() {
+
    let storage = window.localStorage;
 			
 let id = await storage.getItem("id");
@@ -98,7 +100,9 @@ storage.setItem('id', uId);
 	    storage.setItem('user', `${username}#${discriminator}`);
     }
 }
-	    	
+return id;
+  }
+	    let id = await checkUser();	
 			let memberF = await fetch(`http://v7.altertrail.com:69/api/getMember?id=${uId}`, {mode: 'cors', method: "GET",  headers: {
       'Content-Type': 'application/json'}})
 	    let member = await memberF.json();
@@ -162,7 +166,7 @@ storage.setItem('id', uId);
     <div id="footer_wrap" class="outer">
       <footer class="inner">
         
-        <p class="copyright">Maintained by OBS</p>
+        <p class="copyright">soundsworld.ga maintained by OBS</p>
         
       </footer>
     </div>
