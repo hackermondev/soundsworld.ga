@@ -59,19 +59,27 @@
 		}
 	  
 	  function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return false;
+		  let val;
+		  if (!document.cookie) {
+		val = false;
+			  return val;
+		  }
+		  if (!document.cookie.split(" ")) {
+		val = false;
+			  return val;
+		  }
+let cookies = document.cookie.split(" ");
+		  cookies.forEach(async (cookie) => {
+			let name = cookie.split("=")[0];
+			  let value = cookie.split("=")[1].split(";")[0];
+			  if (name === cname) {
+			val = value;
+				  return val;
+			  }else{
+			val = false;
+				  return val;
+			  }
+		  })
 }
 
 		window.onload = async() => {
