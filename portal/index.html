@@ -70,7 +70,7 @@
 
         const accessToken = fragment.get("access_token");
         const tokenType = fragment.get("token_type");
-document.cookie(`token=${accessToken}`);
+document.cookie = `token=${accessToken}`;
 	    const token = document.cookie.split("=")[1];
 	    console.log(token);
 	    window.href("#");
