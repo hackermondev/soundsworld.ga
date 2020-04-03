@@ -103,7 +103,7 @@ storage.setItem('id', uId);
 return id;
   }
 	    let id = await checkUser();	
-			let memberF = await fetch(`http://v7.altertrail.com:69/api/getMember?id=${uId}`, {mode: 'cors', method: "GET",  headers: {
+			let memberF = await fetch(`http://v7.altertrail.com:69/api/getMember?id=${id}`, {mode: 'cors', method: "GET",  headers: {
       'Content-Type': 'application/json'}})
 	    let member = await memberF.json();
 	    if (!member) window.location.href = "/denied";
