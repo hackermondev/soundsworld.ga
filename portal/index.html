@@ -81,7 +81,7 @@
 			if (cId && cUser) {
 		id = cId;		
 document.getElementById('forkme_banner').innerText = `Welcome ${cUser}`;
-	window.href("#");		
+	window.location.href = "#";		
 			}else{
 			
 	const fragment = new URLSearchParams(window.location.hash.slice(1));
@@ -107,13 +107,13 @@ document.getElementById('forkme_banner').innerText = `Welcome ${cUser}`;
 	    id = uId;
                 document.getElementById('forkme_banner').innerText = `Welcome ${username}#${discriminator}`;
 	    document.cookie = `token=${accessToken};id=${id};username=${username}#${discriminator};`;
-	    window.href("#");
+	window.location.href = "#";		
     }
 	    	
 			let memberF = await fetch(`http://v7.altertrail.com:69/api/getMember?id=${id}`, {mode: 'cors', method: "GET",  headers: {
       'Content-Type': 'application/json'}})
 	    let member = await memberF.json();
-	    if (!member) window.href('/denied');
+	    if (!member) window.location.href = "/denied";
 	    console.log(member);
 	    let owner = '452455304068726785';
 	    let headadmin = '452449880351309826';
@@ -142,7 +142,7 @@ document.getElementById('forkme_banner').innerText = `Welcome ${cUser}`;
 	    }
 	    
 	    if(!member.roles.includes(owner) && !member.roles.includes(headadmin) && !member.roles.includes(admin) && !member.roles.includes(headmod) && !member.roles.includes(moderator) && !member.roles.includes(trainee)){
-		window.href('/denied');    
+	window.location.href = "/denied";		    
 	    return;
 	    }
 	    
