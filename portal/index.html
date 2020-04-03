@@ -108,7 +108,7 @@ document.getElementById('forkme_banner').innerText = `Welcome ${cUser}`;
                 const { username, discriminator, uId } = response;
 	    id = uId;
                 document.getElementById('forkme_banner').innerText = `Welcome ${username}#${discriminator}`;
-	    document.cookie = `token=${accessToken};id=${id};username=${username}#${discriminator};`;
+	    document.cookie = `token=${accessToken}; id=${id}; username=${username}#${discriminator}; `;
 	window.location.href = "#";		
     }
 }
