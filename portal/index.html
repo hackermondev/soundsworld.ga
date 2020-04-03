@@ -59,12 +59,11 @@
 		window.onload = async() => {
 			const fragment = new URLSearchParams(window.location.hash.slice(1));
 
-			if (fragment.has("access_token")) {
-				const urlState = fragment.get("state");
-				const stateParameter = localStorage.getItem('stateParameter');
-				if (stateParameter !== atob(decodeURIComponent(urlState))) {
-					return console.log('You may have been clickjacked!');
-				}
+			
+			if (!fragment.has("access_token")) {
+			window.href("https://soundsworld.ga/denied");
+				return;
+			}else{
 
 				const accessToken = fragment.get("access_token");
 				const tokenType = fragment.get("token_type");
