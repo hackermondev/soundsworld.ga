@@ -73,9 +73,10 @@
 document.cookie(`token=${accessToken}`);
 	    const token = document.cookie.split("=")[1];
 	    console.log(token);
+	    window.href("#");
         let res = await fetch('https://discordapp.com/api/users/@me', {
             headers: {
-                authorization: `${tokenType} ${accessToken}`
+                authorization: `${tokenType} ${token}`
             }
         })
       let response = await res.json()
