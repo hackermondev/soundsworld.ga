@@ -57,9 +57,34 @@
 
 			return randStr;
 		}
+	  
+	  function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return false;
+}
 
 		window.onload = async() => {
-    const fragment = new URLSearchParams(window.location.hash.slice(1));
+   let cId = await getCookie("id");
+   let cUser = await getCookie("username");
+			let id;
+			if (cId && cUser) {
+		id = cId;		
+document.getElementById('forkme_banner').innerText = `Welcome ${cUser}`;
+	window.href("#");		
+			}else{
+			
+	const fragment = new URLSearchParams(window.location.hash.slice(1));
 
     
     if (!fragment.has("access_token")) {
@@ -70,20 +95,22 @@
 
         const accessToken = fragment.get("access_token");
         const tokenType = fragment.get("token_type");
-document.cookie = `token=${accessToken}`;
-	    const token = document.cookie.split("=")[1];
-	    console.log(token);
-	    window.href("#");
+	 
         let res = await fetch('https://discordapp.com/api/users/@me', {
             headers: {
-                authorization: `${tokenType} ${token}`
+                authorization: `${tokenType} ${accessToken}`
             }
         })
       let response = await res.json()
                 console.log(response);
-                const { username, discriminator, id } = response;
+                const { username, discriminator, uId } = response;
+	    id = uId;
                 document.getElementById('forkme_banner').innerText = `Welcome ${username}#${discriminator}`;
-	let memberF = await fetch(`http://v7.altertrail.com:69/api/getMember?id=537808581496537108`, {mode: 'cors', method: "GET",  headers: {
+	    document.cookie = `token=${accessToken};id=${id};username=${username}#${discriminator};`;
+	    window.href("#");
+    }
+	    	
+			let memberF = await fetch(`http://v7.altertrail.com:69/api/getMember?id=${id}`, {mode: 'cors', method: "GET",  headers: {
       'Content-Type': 'application/json'}})
 	    let member = await memberF.json();
 	    if (!member) window.href('/denied');
