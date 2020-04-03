@@ -71,7 +71,7 @@ let id = await storage.getItem("id");
         console.log(uId);
         console.log(cUser);
 document.getElementById('forkme_banner').innerText = `Welcome ${cUser}`;
-		
+		return uId;
 			}else{
 			
 	const fragment = new URLSearchParams(window.location.hash.slice(1));
@@ -100,7 +100,7 @@ storage.setItem('id', uId);
 	    storage.setItem('user', `${username}#${discriminator}`);
     }
 }
-return id;
+return uId;
   }
 	    let id = await checkUser();	
 			let memberF = await fetch(`http://v7.altertrail.com:69/api/getMember?id=${id}`, {mode: 'cors', method: "GET",  headers: {
