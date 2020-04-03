@@ -69,14 +69,14 @@ let id = await storage.getItem("id");
         console.log(uId);
         console.log(cUser);
 document.getElementById('forkme_banner').innerText = `Welcome ${cUser}`;
-	window.location.href = "#";		
+		
 			}else{
 			
 	const fragment = new URLSearchParams(window.location.hash.slice(1));
 
     
     if (!fragment.has("access_token")) {
-    window.location.href = "http://soundsworld.ga";
+    window.location.href = "http://soundsportal.gq";
         return;
     }else{
      document.getElementById('forkme_banner').innerText = `Loading....`;
@@ -96,7 +96,6 @@ uId = id;
 document.getElementById('forkme_banner').innerText = `Welcome ${username}#${discriminator}`;
 storage.setItem('id', uId);
 	    storage.setItem('user', `${username}#${discriminator}`);
-	    window.location.href = "#";		
     }
 }
 	    	
@@ -163,7 +162,7 @@ storage.setItem('id', uId);
     <div id="footer_wrap" class="outer">
       <footer class="inner">
         
-        <p class="copyright">soundsworld.ga maintained by OBS</p>
+        <p class="copyright">Maintained by OBS</p>
         
       </footer>
     </div>
