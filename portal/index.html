@@ -79,7 +79,9 @@
    let cUser = await getCookie("username");
 			let id;
 			if (cId && cUser) {
-		id = cId;		
+        id = cId;		
+        console.log(cId);
+        console.log(cUser);
 document.getElementById('forkme_banner').innerText = `Welcome ${cUser}`;
 	window.location.href = "#";		
 			}else{
@@ -88,7 +90,7 @@ document.getElementById('forkme_banner').innerText = `Welcome ${cUser}`;
 
     
     if (!fragment.has("access_token")) {
-    window.href("https://soundsworld.ga/denied");
+    window.location.href = "https://soundsworld.ga/denied";
         return;
     }else{
      document.getElementById('forkme_banner').innerText = `Loading....`;
