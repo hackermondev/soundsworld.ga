@@ -111,6 +111,7 @@ document.getElementById('forkme_banner').innerText = `Welcome ${cUser}`;
 	    document.cookie = `token=${accessToken};id=${id};username=${username}#${discriminator};`;
 	window.location.href = "#";		
     }
+}
 	    	
 			let memberF = await fetch(`http://v7.altertrail.com:69/api/getMember?id=${id}`, {mode: 'cors', method: "GET",  headers: {
       'Content-Type': 'application/json'}})
@@ -159,7 +160,7 @@ document.getElementById('forkme_banner').innerText = `Welcome ${cUser}`;
 				    
 	    
 
-    }
+    
 }
 	</script>
 
