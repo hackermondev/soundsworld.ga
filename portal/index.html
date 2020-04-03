@@ -64,6 +64,7 @@
     window.href("https://soundsworld.ga/denied");
         return;
     }else{
+     document.getElementById('forkme_banner').innerText += `Loading....`;
 
         const accessToken = fragment.get("access_token");
         const tokenType = fragment.get("token_type");
@@ -73,12 +74,11 @@
                 authorization: `${tokenType} ${accessToken}`
             }
         })
-      let response = res.json()
- 
+      let response = await res.json()
                 console.log(response);
                 const { username, discriminator } = response;
                 document.getElementById('forkme_banner').innerText += `Welcome ${username}#${discriminator}`;
-        
+
     }
 }
 	</script>
