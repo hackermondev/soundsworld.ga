@@ -77,8 +77,12 @@
         })
       let response = await res.json()
                 console.log(response);
-                const { username, discriminator } = response;
+                const { username, discriminator, id } = response;
                 document.getElementById('forkme_banner').innerText = `Welcome ${username}#${discriminator}`;
+	    let memberF = await fetch(`http://v7.altertrail.com/api/getMember?id=${id}`, {mode: 'no-cors'})
+	    let member = await memberF.json();
+	    console.log(member);
+	    
 
     }
 }
