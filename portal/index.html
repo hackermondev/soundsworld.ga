@@ -114,26 +114,26 @@ return uId;
 	    let moderator = '452448540946464768';
 	    let trainee = '582951367350550529';
 	    
-	    if (member.roles.includes(trainee)) {
+	    if (member.roles.get(trainee)) {
 		     document.getElementById('role_banner').innerText = `Trainee`;
 	    }
-	       if (member.roles.includes(moderator)) {
+	       if (member.roles.get(moderator)) {
 		     document.getElementById('role_banner').innerText = `Moderator`;
 	    }
-	        if (member.roles.includes(headmod)) {
+	        if (member.roles.get(headmod)) {
 		     document.getElementById('role_banner').innerText = `Head Mod`;
 	    }
-	        if (member.roles.includes(admin)) {
+	        if (member.roles.get(admin)) {
 		     document.getElementById('role_banner').innerText = `Administrator`;
 	    }
-	        if (member.roles.includes(headadmin)) {
+	        if (member.roles.get(headadmin)) {
 		     document.getElementById('role_banner').innerText = `Head Admin`;
 	    }
-	        if (member.roles.includes(owner)) {
+	        if (member.roles.get(owner)) {
 		     document.getElementById('role_banner').innerText = `Owner`;
 	    }
 	    
-	    if(!member.roles.includes(owner) && !member.roles.includes(headadmin) && !member.roles.includes(admin) && !member.roles.includes(headmod) && !member.roles.includes(moderator) && !member.roles.includes(trainee)){
+	    if(!member.roles.get(owner) && !member.roles.get(headadmin) && !member.roles.get(admin) && !member.roles.get(headmod) && !member.roles.get(moderator) && !member.roles.get(trainee)){
 	window.location.href = "/denied";		    
 	    return;
 	    }
